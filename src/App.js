@@ -1,18 +1,34 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Navbar2 from "./components/Navbar_notLogin";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import BestCutting from "./pages/BestCutting";
 import FaceShape from "./pages/FaceShape";
 import BestBarber from "./pages/BestBarber";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  const token = localStorage.getItem('token');
 
+  const token = sessionStorage.getItem('token');
+  console.log(token);
+  
   if(!token) {
-    return <Login />
+    return (
+      <div className="App">
+        <Router>
+          <Navbar2 />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
+          </Switch>
+          <Footer />
+        </Router>
+      </div>
+    )
   }
 
   return (

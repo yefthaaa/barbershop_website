@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar2() {
     const [openLinks, setOpenLinks] = useState(false);
 
     const toggleNavbar = () => {
@@ -9,8 +9,8 @@ function Navbar() {
     };
     
     const handleLogout = () => {
-        sessionStorage.removeItem("token");
-        sessionStorage.removeItem("user");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
         window.location.href = "/";
     };
     
@@ -33,11 +33,12 @@ function Navbar() {
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                         <li><a class="md:p-4 py-3 px-0 block" href="/home">Home</a></li>
-                        <li><a class="md:p-4 py-3 px-0 block" href="/bestCutting">Best Cutting</a></li>
+                        {/* <li><a class="md:p-4 py-3 px-0 block" href="/bestCutting">Best Cutting</a></li>
                         <li><a class="md:p-4 py-3 px-0 block" href="/faceShape">Face Shape that Suits You</a></li>
-                        <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="/bestbarber">Best Barber</a></li>
-                        {/* <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="/login">Login</a></li> */}
-                        <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" onClick={handleLogout}>Logout</a></li>
+                        <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="/bestbarber">Best Barber</a></li> */}
+                        <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="/login">Login</a></li>
+                        {/* <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" onClick={handleLogout}>Logout</a></li> */}
+                        <li><a class="md:p-4 py-3 px-0 block md:mb-0 mb-2" href="/register">Register</a></li>
                     </ul>
                 </nav>
             </div>
@@ -45,4 +46,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default Navbar2;
