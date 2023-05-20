@@ -14,8 +14,8 @@ function App() {
 
   const token = sessionStorage.getItem('token');
   console.log(token);
-  
-  if(!token) {
+
+  if (!token) {
     return (
       <div className="App">
         <Router>

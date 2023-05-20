@@ -1,47 +1,77 @@
-function FaceShape() {
-    return (
-        <div class="flex items-center justify-center w-screen min-h-screen p-10">
-            <div class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 max-w-6xl">
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Axios from 'axios';
 
-                <div class="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
-                    <div class="h-40 bg-gray-400 rounded-lg"></div>
-                    <div class="flex flex-col items-start mt-4">
-                        <h4 class="text-xl font-semibold">Heading</h4>
-                        <p class="text-sm">Some text about the thing that goes over a few lines.</p>
-                        <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" href="#">Click
-                            Here</a>
+function FaceShape() {
+
+    const [faces, setFace] = useState([]);
+    const [mounted, setMounted] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    const [namaUser, setNamaUser] = useState();
+    // const [idRambut, setIdRambut] = useState();
+    // const user = JSON.parse(localStorage.getItem('user'));
+
+    const getData = async () => {
+        const token = sessionStorage.getItem('token');
+        const tokenType = sessionStorage.getItem('token_type');
+        const response = await fetch('http://localhost:8000/api/wajah', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': 'Bearer' + ' ' + token
+            }
+        }).catch(err => console.log(err));
+        const objek = await response.json();
+        console.log(objek.data);
+        setFace(objek.data);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+        console.log(token);
+    }
+
+    // fungsi untuk memotong string
+    // function truncateString(str, maxLength) {
+    //     if (str.length <= maxLength) {
+    //         return str;
+    //     } else {
+    //         const truncated = str.substring(0, maxLength);
+    //         return `${truncated}...`;
+    //     }
+    // }
+
+    // fungsi untuk mengarahkan ke laman baca posting
+    const handleRedirect = (id) => {
+        Router.push('/api/wajah?id=' + id);
+    }
+
+    useEffect(() => {
+        if (!mounted) {
+            setMounted(true);
+        }
+        else {
+            getData();
+            setNamaUser(sessionStorage.getItem('name'));
+        }
+    }, [mounted]);
+
+    return (
+        <div class="flex items-center justify-center w-screen min-h-screen p-10" >
+            <div class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 max-w-6xl">
+                {faces.map(face => (
+                    <div key={face.id_wajah} class="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
+                        <div class="flex flex-col items-start mt-4">
+                            <h4 class="text-xl font-semibold">{face.jenis_wajah}</h4>
+                            <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" onClick={() => handleRedirect(face.id_model)}>Click
+                                Here</a>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
-                    <div class="h-40 bg-gray-400 rounded-lg"></div>
-                    <div class="flex flex-col items-start mt-4">
-                        <h4 class="text-xl font-semibold">Heading</h4>
-                        <p class="text-sm">Some text about the thing that goes over a few lines.</p>
-                        <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" href="#">Click
-                            Here</a>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
-                    <div class="h-40 bg-gray-400 rounded-lg"></div>
-                    <div class="flex flex-col items-start mt-4">
-                        <h4 class="text-xl font-semibold">Heading</h4>
-                        <p class="text-sm">Some text about the thing that goes over a few lines.</p>
-                        <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" href="#">Click
-                            Here</a>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
-                    <div class="h-40 bg-gray-400 rounded-lg"></div>
-                    <div class="flex flex-col items-start mt-4">
-                        <h4 class="text-xl font-semibold">Heading</h4>
-                        <p class="text-sm">Some text about the thing that goes over a few lines.</p>
-                        <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" href="#">Click
-                            Here</a>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
+
 }
 
 export default FaceShape;
