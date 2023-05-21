@@ -4,6 +4,7 @@ import Navbar2 from "./components/Navbar_notLogin";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import BestCutting from "./pages/BestCutting";
+import DescRambut from "./pages/DescRambut";
 import FaceShape from "./pages/FaceShape";
 import BestBarber from "./pages/BestBarber";
 import Login from "./pages/Login";

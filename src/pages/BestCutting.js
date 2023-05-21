@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Axios from 'axios';
+import DescRambut from './DescRambut';
+import { useHistory } from 'react-router-dom';
 
 function BestCuttiing() {
 
@@ -41,9 +43,11 @@ function BestCuttiing() {
     }
 
     // fungsi untuk mengarahkan ke laman baca posting
-    const handleRedirect = (id) => {
-        Router.push('/api/rambut?id=' + id);
+    const history = useHistory();
+    const handleRedirect = (id_rambut) => {
+        history.push('/descrambut?id=' + id_rambut);
     }
+
 
     useEffect(() => {
         if (!mounted) {
@@ -60,19 +64,22 @@ function BestCuttiing() {
             <div class="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2 max-w-6xl">
                 {rambuts.map(rambut => (
                     <div key={rambut.id_model} class="flex flex-col bg-gray-200 rounded-lg p-4 m-2">
-                        <div class="h-40 bg-gray-400 rounded-lg">
-                            <img src={rambut.img_model} className="card-img-top" alt="..." />
+                        <div class="h-40 bg-400 rounded-lg">
+                            <img src={rambut.img_model} className="card-img-top"
+                                style={{ width: 150, height: 150, position: 'absolute' }} alt="..." />
                         </div>
                         <div class="flex flex-col items-start mt-4">
-                            <h4 class="text-xl font-semibold">{truncateString(rambut.nama_model, 30)}</h4>
+                            <h6 class="text-xl font-semibold">{truncateString(rambut.nama_model, 30)}</h6>
+                            <p class="text-sm">{truncateString(rambut.desc_model, 30)}</p>
 
-                            <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" onClick={() => handleRedirect(rambut.id_model)}>Click
-                                Here</a>
+                            <button class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" onClick={() => handleRedirect(rambut.id_model)} >Click
+                                Here</button>
+
                         </div>
                     </div>
                 ))}
             </div>
-        </div>
+        </div >
     );
 
 }
