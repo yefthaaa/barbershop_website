@@ -4,6 +4,7 @@ import Navbar2 from "./components/Navbar_notLogin";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import BestCutting from "./pages/BestCutting";
+import DescRambut from "./pages/DescRambut";
 import FaceShape from "./pages/FaceShape";
 import BestBarber from "./pages/BestBarber";
 import Login from "./pages/Login";
@@ -38,6 +39,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/bestcutting" exact component={BestCutting} />
+          <Route path="/descrambut/:pid" component={DescRambut} />
           <Route path="/faceshape" exact component={FaceShape} />
           <Route path="/bestbarber" exact component={BestBarber} />
           <Route path="/login" exact component={Login} />
