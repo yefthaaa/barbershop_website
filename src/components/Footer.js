@@ -1,9 +1,11 @@
 function Footer() {
     return (
-        <section class="py-2 bg-gray-100 text-gray-900">
+        <section class="bg-gradient-to-tr from-gray-900 to-gray-900">
             <div class="container mx-auto flex flex-col justify-around p-4 text-center md:p-2 lg:flex-row">
-                <div class="flex flex-col justify-center lg:text-left">
-                    <h1 class="py-2 text-3xl font-medium leading-tight title-font">X's Barbershop</h1>
+                <div class="text-2xl font-bold flex flex-col justify-center lg:text-left">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-yellow-800">
+                        <a href="/">SAKRA BARBERSHOP</a>
+                    </span>
                 </div>
                 <div
                     class="flex flex-col items-center justify-center flex-shrink-0 mt-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4 lg:ml-4 lg:mt-0 lg:justify-end">

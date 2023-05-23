@@ -18,6 +18,7 @@ export default function Register () {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+	const [image, setImage] = useState("/Logo_Sakra_barber_600_2.png");
 
     const handleSubmit = async e => {
         e.preventDefault();
@@ -48,13 +49,13 @@ export default function Register () {
         <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-md w-full space-y-8">
 			<div>
-				<img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow" />
+				<img class="mx-auto h-20 w-auto" src={image} alt="Workflow" />
 				<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
 					Sign Up to your account
 				</h2>
 				<p class="mt-2 text-center text-sm text-gray-600">
 					Or 
-					<a href="/login" class="font-medium text-indigo-600 hover:text-indigo-500">
+					<a href="/login" class="font-medium text-yellow-700 hover:text-yellow-600">
 						_Login your account
 					</a>
 				</p>
@@ -64,15 +65,15 @@ export default function Register () {
 				<div class="rounded-md shadow-sm -space-y-px">
 					<div>
 						<label for="name" class="sr-only">Name</label>
-						<input id="name" name="name" type="name" autocomplete="name" onChange={e => setName(e.target.value)} required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Your Name" />
+						<input id="name" name="name" type="name" autocomplete="name" onChange={e => setName(e.target.value)} required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-yellow-500 focus:z-10 sm:text-sm" placeholder="Your Name" />
 					</div>
 					<div>
 						<label for="email-address" class="sr-only">Email address</label>
-						<input id="email" name="email" type="email" autocomplete="email" onChange={e => setEmail(e.target.value)} required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded--md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
+						<input id="email" name="email" type="email" autocomplete="email" onChange={e => setEmail(e.target.value)} required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded--md focus:outline-none focus:ring-indigo-500 focus:border-yellow-500 focus:z-10 sm:text-sm" placeholder="Email address" />
 					</div>
 					<div>
 						<label for="password" class="sr-only">Password</label>
-						<input id="password" name="password" type="password" autocomplete="current-password" onChange={e => setPassword(e.target.value)} required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password" />
+						<input id="password" name="password" type="password" autocomplete="current-password" onChange={e => setPassword(e.target.value)} required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-yellow-500 focus:z-10 sm:text-sm" placeholder="Password" />
 					</div>
 				</div>
 

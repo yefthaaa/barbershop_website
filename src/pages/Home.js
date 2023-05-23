@@ -1,4 +1,8 @@
+import { useState, useEffect } from 'react';
+
 function Home() {
+    const [image, setImage] = useState("/Sakra_barber.png");
+
     return (
         <div class="container my-24 px-6 mx-auto">
             <section class="mb-32 text-gray-800">
@@ -9,9 +13,9 @@ function Home() {
                                 style={{
                                     background: 'hsla(0, 0 %, 100 %, 0.55)'
                                 }}>
-                                <h2 class="text-3xl font-bold mb-6">X's Barbershop</h2>
+                                <h2 class="text-3xl font-bold mb-6">Sakra Barbershop</h2>
                                 <p class="text-gray-500 mb-6 pb-2 lg:pb-0">
-                                    X's is one of the best barbershop in the country. We provide the best service for you.
+                                    Sakra is one of the best barbershop in the country. We provide the best service for you.
                                 </p>
                                 <div class="flex flex-col md:flex-row md:justify-around lg:justify-between mb-6 mx-auto">
                                     <p class="flex items-center mb-4 md:mb-2 lg:mb-0 mx-auto md:mx-0">
@@ -40,14 +44,14 @@ function Home() {
                                     </p>
                                 </div>
                                 <p class="text-black-500 mb-0">
-                                    X's Barbershop website was created to help barbers out there to more easily connect with customers.
+                                    Sakra Barbershop website was created to help barbers out there to more easily connect with customers.
                                     This website was created as a forum that bridges customers to find out what hairstyles are currently
                                     trending, hairstyles that suit their face shape, and choose the best barbers.
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <img src="https://www.rxwallpaper.site/wp-content/uploads/barber-wallpapers-wallpaper-cave.png" class="w-full rounded-lg shadow-lg"
+                            <img src={image} class="w-full rounded-lg shadow-lg"
                                 alt="" />
                         </div>
                     </div>
