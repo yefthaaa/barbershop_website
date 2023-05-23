@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 function DescRambut({ match }) {
     const { id } = useParams(); // Mengakses ID dari URL parameters
-    const [descs, setDesc] = useState([]);
+    const [desc, setDesc] = useState([]);
     const [mounted, setMounted] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [namaUser, setNamaUser] = useState();
@@ -45,7 +45,7 @@ function DescRambut({ match }) {
 
         <div class="container my-24 px-6 mx-auto">
             <section class="mb-32 text-gray-800">
-                {descs.map(desc => (
+                {desc.map(desc => (
                     <div key={desc.id_model} class="flex flex-wrap">
 
                         <div class="grow-0 shrink-0 basis-auto w-full md:w-2/12 lg:w-3/12">

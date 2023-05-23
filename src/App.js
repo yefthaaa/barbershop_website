@@ -40,9 +40,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/bestcutting" exact component={BestCutting} />
-          <Route path="/descrambut/:id" component={DescRambut} />
+          <Route path="/descrambut/:pid" component={DescRambut} />
           <Route path="/faceshape" exact component={FaceShape} />
-          <Route path="/rambutwithface/:id" component={RambutwithFace} />
+          <Route path="/rambutwithface/:pid" component={RambutwithFace} />
           <Route path="/bestbarber" exact component={BestBarber} />
           <Route path="/login" exact component={Login} />
         </Switch>
