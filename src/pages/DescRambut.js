@@ -3,68 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-function DescRambut({match}) {
+function DescRambut({ match }) {
     const { id } = useParams(); // Mengakses ID dari URL parameters
     const [descs, setDesc] = useState([]);
-    // const user = JSON.parse(localStorage.getItem('user'));
     const [mounted, setMounted] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [namaUser, setNamaUser] = useState();
 
     console.log(match.params.pid);
-    // const getData = async () => {
-    //     const token = sessionStorage.getItem('token');
-    //     const tokenType = sessionStorage.getItem('token_type');
-    //     const response = await fetch('http://localhost:8000/api/rambut', {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Accept': 'application/json',
-    //             'Authorization': 'Bearer' + ' ' + token
-    //         }
-    //     }).catch(err => console.log(err));
-    //     const objek = await response.json();
-    //     console.log(objek.data);
-    //     setDesc(objek.data);
-    //     setTimeout(() => {
-    //         setIsLoading(false);
-    //     }, 1000);
-    //     console.log(token);
-    // }
-
-    // // fungsi untuk memotong string
-    // function truncateString(str, maxLength) {
-    //     if (str.length <= maxLength) {
-    //         return str;
-    //     } else {
-    //         const truncated = str.substring(0, maxLength);
-    //         return `${truncated}...`;
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     if (!mounted) {
-    //         setMounted(true);
-    //     }
-    //     else {
-    //         getData();
-    //         setIdRambut(sessionStorage.getItem('idRambut'));
-    //     }
-    // }, [mounted]);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await Axios.get(`http://localhost:8000/api/rambut/${id}`);
-    //             setDesc(response.data);
-    //             console.log(setDesc);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-
-    //     fetchData();
-    // }, [id]);
 
     const getData = async ({ match }) => {
         // console.log(id);
@@ -96,7 +42,7 @@ function DescRambut({match}) {
 
 
     return (
-        
+
         <div class="container my-24 px-6 mx-auto">
             <section class="mb-32 text-gray-800">
                 {descs.map(desc => (

@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import BestCutting from "./pages/BestCutting";
 import DescRambut from "./pages/DescRambut";
 import FaceShape from "./pages/FaceShape";
+import RambutwithFace from "./pages/RambutwithFace";
 import BestBarber from "./pages/BestBarber";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -39,8 +40,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/bestcutting" exact component={BestCutting} />
-          <Route path="/descrambut/:pid" component={DescRambut} />
+          <Route path="/descrambut/:id" component={DescRambut} />
           <Route path="/faceshape" exact component={FaceShape} />
+          <Route path="/rambutwithface/:id" component={RambutwithFace} />
           <Route path="/bestbarber" exact component={BestBarber} />
           <Route path="/login" exact component={Login} />
         </Switch>

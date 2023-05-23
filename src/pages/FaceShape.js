@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 function FaceShape() {
 
@@ -31,19 +32,10 @@ function FaceShape() {
         console.log(token);
     }
 
-    // fungsi untuk memotong string
-    // function truncateString(str, maxLength) {
-    //     if (str.length <= maxLength) {
-    //         return str;
-    //     } else {
-    //         const truncated = str.substring(0, maxLength);
-    //         return `${truncated}...`;
-    //     }
-    // }
-
     // fungsi untuk mengarahkan ke laman baca posting
+    const history = useHistory();
     const handleRedirect = (id) => {
-        Router.push('/api/wajah?id=' + id);
+        history.push('/rambutwithface/' + id);
     }
 
     useEffect(() => {
@@ -64,7 +56,7 @@ function FaceShape() {
 
                         <div class="flex flex-col items-start mt-4">
                             <h4 class="text-xl font-semibold">{face.jenis_wajah}</h4>
-                            <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" onClick={() => handleRedirect(face.id_model)}>Click
+                            <a class="p-2 leading-none rounded font-medium mt-3 bg-gray-400 text-xs uppercase" onClick={() => handleRedirect(face.id_wajah)}>Click
                                 Here</a>
                         </div>
                     </div>
