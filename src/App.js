@@ -10,6 +10,7 @@ import RambutwithFace from "./pages/RambutwithFace";
 import BestBarber from "./pages/BestBarber";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import HomeNotLogin from "./pages/HomeNotLogin";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <Router>
           <Navbar2 />
           <Switch>
-            <Route path="/" exact component={Home} />
+            <Route path="/" exact component={HomeNotLogin} />
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
           </Switch>
